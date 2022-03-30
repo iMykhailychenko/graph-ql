@@ -1,0 +1,12 @@
+type Query {
+    post: [Post]
+}
+
+type Post {
+    _id: ID!
+    title: String!
+    description: String!
+    image: String!
+    crated: String!
+    edited: String
+}

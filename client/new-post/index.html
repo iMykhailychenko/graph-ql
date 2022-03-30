@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>GraphQL new post</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Create new post</h1>
+    <form action="/api/posts" method="post">
+      <table style="border: 1px solid black">
+        <tbody style="margin: 0">
+          <tr>
+            <td style="border: 1px solid black; padding: 5px">
+              <label for="title">Title</label>
+            </td>
+            <td style="border: 1px solid black; padding: 5px">
+              <textarea
+                id="title"
+                name="title"
+                rows="2"
+                cols="100"
+                placeholder="Enter post title"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black; padding: 5px">
+              <label for="image">Image</label>
+              <p>
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://unsplash.com/"
+                  >You can select an image here</a
+                >
+              </p>
+            </td>
+            <td style="border: 1px solid black; padding: 5px">
+              <img
+                id="img-tag"
+                style="
+                  display: block;
+                  width: 300px;
+                  height: 100%;
+                  object-fit: contain;
+                  margin-bottom: 20px;
+                "
+                src="/assets/no-image.png"
+                alt=""
+              />
+              <textarea
+                rows="2"
+                cols="100"
+                id="image"
+                name="image"
+                placeholder="Image url"
+              ></textarea>
+              <small id="error-message" style="display: none; color: red"
+                >Invalid url</small
+              >
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black; padding: 5px">
+              <label for="description">Description</label>
+            </td>
+            <td style="border: 1px solid black; padding: 5px">
+              <textarea
+                cols="100"
+                rows="10"
+                placeholder="Enter post description"
+                name="description"
+                id="description"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black; padding: 5px" colspan="2">
+              <button>Submit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <script src="./new-post.js" type="module"></script>
+  </body>
+</html>
