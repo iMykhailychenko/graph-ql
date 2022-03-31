@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const resolvers = require("./graphql/resolvers");
 
 const { posts } = require("./api/posts/posts.router");
+const { unsplash } = require("./api/unsplush/unsplash.router");
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use("/api", helmet());
 
+app.use("/", unsplash);
 app.use("/api/posts", posts);
 
 app.use(express.static("client"));

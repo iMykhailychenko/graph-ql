@@ -13,16 +13,24 @@
       * {
         box-sizing: border-box;
       }
+
+      textarea {
+        width: 100%;
+      }
     </style>
   </head>
   <body>
     <h1>Create new post</h1>
-    <form action="/api/posts" method="post">
-      <table style="border: 1px solid black">
+    <p>
+      <a href="/">Go to home page</a>
+    </p>
+    <form action="/api/posts" method="post" style="width: 100%">
+      <table style="border: 1px solid black; width: 100%">
         <tbody style="margin: 0">
           <tr>
             <td style="border: 1px solid black; padding: 5px">
               <label for="title">Title</label>
+              <button id="reset-title" type="button">Reset</button>
             </td>
             <td style="border: 1px solid black; padding: 5px">
               <textarea
@@ -32,19 +40,25 @@
                 cols="100"
                 placeholder="Enter post title"
               ></textarea>
+              <small style="display: block"
+                >Max length <span id="title-length">0</span>/100</small
+              >
             </td>
           </tr>
           <tr>
             <td style="border: 1px solid black; padding: 5px">
               <label for="image">Image</label>
-              <p>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://unsplash.com/"
-                  >You can select an image here</a
-                >
-              </p>
+              <button id="reset-image" type="button">Reset</button>
+              <div style="margin-top: 10px">
+                <ol style="padding-left: 20px">
+                  <li>Click on image</li>
+                  <li>Right click on the image</li>
+                  <li>Copy image address</li>
+                </ol>
+                <button id="modal-btn" type="button">
+                  You can select an image here
+                </button>
+              </div>
             </td>
             <td style="border: 1px solid black; padding: 5px">
               <img
@@ -74,19 +88,24 @@
           <tr>
             <td style="border: 1px solid black; padding: 5px">
               <label for="description">Description</label>
+              <button id="reset-description" type="button">Reset</button>
             </td>
             <td style="border: 1px solid black; padding: 5px">
               <textarea
-                cols="100"
-                rows="10"
-                placeholder="Enter post description"
-                name="description"
+                rows="25"
+                cols="150"
                 id="description"
+                name="description"
+                placeholder="Enter post description"
               ></textarea>
+              <small style="display: block"
+                >Max length <span id="description-length">0</span>/1000</small
+              >
             </td>
           </tr>
           <tr>
             <td style="border: 1px solid black; padding: 5px" colspan="2">
+              <button type="reset">Reset</button>
               <button>Submit</button>
             </td>
           </tr>
@@ -94,6 +113,6 @@
       </table>
     </form>
 
-    <script src="./new-post.js" type="module"></script>
+    <script src="scripts/index.js" type="module"></script>
   </body>
 </html>
