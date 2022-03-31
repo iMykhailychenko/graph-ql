@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon node src/server.js & nodemon node unsplash/index.js",
-    "start": "node src/server.js & node unsplash/index.js"
+    "dev": "nodemon node src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
