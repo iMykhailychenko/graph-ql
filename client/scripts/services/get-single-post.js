@@ -1,8 +1,8 @@
 import { fetcher } from "../helpers/fetcher.js";
 
 const query = `
-query {
-  posts {
+query Post($id: ID!) {
+  post(id: $id) {
     _id,
     title,
     image,
@@ -11,4 +11,4 @@ query {
 }
 `;
 
-export const getPosts = async () => await fetcher(query);
+export const getSinglePosts = async (id) => await fetcher(query, { id });

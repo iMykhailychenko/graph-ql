@@ -24,10 +24,11 @@ const rowTemplate = (posts) => {
                   <img style="display: block; width: auto; height: 350px; object-fit: cover;" src="${
                     item.image
                   }" alt="${item.title}">
-                  <a href="/posts/${item._id}">
-                    <h2>${item.title}</h2>
-                    <p>${item.description.slice(0, 300) + "..."}</p>
-                  </a>
+                  <h2>${item.title}</h2>
+                  <p>${item.description.slice(0, 300) + "..."}</p>
+                  <p>
+                    <a href="/posts/?id=${item._id}">View post</a>
+                  </p>
             </td>`
           )
           .join("")}</tr>`
@@ -39,17 +40,15 @@ const start = async () => {
   const data = await getPosts();
   const posts = document.getElementById("posts");
 
-  if (!data) {
+  if (!data?.posts) {
     posts.insertAdjacentHTML("beforeend", "Something went wrong!");
   }
 
-  rowTemplate(data.post);
-
   posts.insertAdjacentHTML(
     "beforeend",
-    !data.post?.length
+    !data.posts?.length
       ? "You dont have posts yet!"
-      : tableTemplate(rowTemplate(data.post))
+      : tableTemplate(rowTemplate(data.posts))
   );
 };
 
