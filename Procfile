@@ -1,1 +1,0 @@
-web: docker-compose --env-file .env up --build --remove-orphans -d && yarn start:prod

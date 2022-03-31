@@ -1,16 +1,6 @@
 version: '3.9'
 
 services:
-  backend:
-    container_name: backend
-    build: ./
-    restart: unless-stopped
-    command: yarn start
-    env_file:
-      - .env
-    depends_on:
-      - mongodb
-
   mongodb:
     image: mongo
     restart: unless-stopped
