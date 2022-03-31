@@ -1,4 +1,5 @@
 import { getPosts } from "./scripts/services/get-posts.js";
+import { sanitizeHTML } from "./scripts/helpers/format-html.js";
 
 const tableTemplate = (children) => {
   return "<table><tbody>" + children + "</tbody></table>";
@@ -25,7 +26,7 @@ const rowTemplate = (posts) => {
                     item.image
                   }" alt="${item.title}">
                   <h2>${item.title}</h2>
-                  <p>${item.description.slice(0, 300) + "..."}</p>
+                  <p>${sanitizeHTML(item.description).slice(0, 400) + "..."}</p>
                   <p>
                     <a href="/posts/?id=${item._id}">View post</a>
                   </p>
