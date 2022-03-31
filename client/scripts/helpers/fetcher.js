@@ -1,6 +1,6 @@
 export const fetcher = async (query) => {
   try {
-    const res = await fetch("http://localhost:3000/graphql", {
+    const res = await fetch("/graphql", {
       method: "POST",
       headers: {
         "content-type": "application/json",
