@@ -4,6 +4,7 @@ const { UnsplashController } = require("./posts.controller");
 const router = Router();
 
 router.get("/unsplash", UnsplashController.get);
+router.get("/photos/*", UnsplashController.get);
 router.get("/a/*", UnsplashController.get);
 router.get("/t/*", UnsplashController.get);
 router.get("/main*", UnsplashController.get);
