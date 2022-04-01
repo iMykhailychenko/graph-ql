@@ -2,10 +2,10 @@
   "name": "graph-ql",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "blog/app.js",
   "scripts": {
-    "dev": "nodemon node src/server.js",
-    "start": "node src/server.js"
+    "dev": "nodemon node blog/server.js & nodemon node unsplush/server.js",
+    "start": "node blog/server.js & node unsplush/server.js"
   },
   "keywords": [],
   "author": "",
