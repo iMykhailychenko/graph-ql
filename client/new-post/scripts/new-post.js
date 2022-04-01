@@ -63,14 +63,14 @@ export const start = () => {
   refs.imgTag.addEventListener("click", () => {
     Modal.open(
       `<p>Open the website: <a target="_blank" rel="noopener" href="https://unsplash.com/">https://unsplash.com/</a></p>
-                <iframe style="height: 80vh; width: 80vw" src="${location.hostname}:4000" title="Unsplash"></iframe>`
+                <iframe style="height: 80vh; width: 80vw" src="${location.protocol}//${location.hostname}:4000" title="Unsplash"></iframe>`
     );
   });
 
   modalBtn.addEventListener("click", () => {
     Modal.open(
       `<p>Open the website: <a target="_blank" rel="noopener" href="https://unsplash.com/">https://unsplash.com/</a></p>
-                <iframe style="height: 80vh; width: 80vw" src="${location.hostname}:4000" title="Unsplash"></iframe>`
+                <iframe style="height: 80vh; width: 80vw" src="${location.protocol}//${location.hostname}:4000" title="Unsplash"></iframe>`
     );
   });
 };
