@@ -4,8 +4,8 @@
   "description": "",
   "main": "blog/app.js",
   "scripts": {
-    "dev": "nodemon node blog/server.js & nodemon node unsplush/server.js",
-    "start": "node blog/server.js & node unsplush/server.js"
+    "dev": "../node_modules/.bin/nodemon node backend/blog/server.js & nodemon node backend/unsplush/server.js",
+    "start": "node blog/server.js & node backend/unsplush/server.js"
   },
   "keywords": [],
   "author": "",

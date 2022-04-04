@@ -32,5 +32,3 @@ yarn-error.log*
 
 .idea
 .vscode
-
-mongo_data/

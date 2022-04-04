@@ -25,8 +25,6 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use("/api", helmet());
 
-app.use("/api/posts", posts);
-
 app.use(express.static("client"));
 
 module.exports = { app, apollo };

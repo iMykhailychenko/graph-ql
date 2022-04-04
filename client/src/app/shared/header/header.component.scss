@@ -1,0 +1,16 @@
+:host {
+  position: relative;
+  z-index: 2;
+  display: block;
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.12);
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .navbar-brand {
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
