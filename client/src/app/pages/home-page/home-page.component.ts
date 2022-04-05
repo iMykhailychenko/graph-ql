@@ -10,7 +10,7 @@ import { PostsService } from '../../services/posts/posts.service';
 export class HomePageComponent implements OnInit {
   public version = environment.version;
 
-  constructor(private readonly postsService: PostsService) {}
+  constructor(public readonly postsService: PostsService) {}
 
   ngOnInit(): void {
     this.postsService.getList();

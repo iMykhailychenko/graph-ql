@@ -1,0 +1,20 @@
+.container {
+  max-width: 120rem;
+  margin: 5rem auto;
+
+  .inner {
+    max-width: 80rem;
+    margin: 0 auto 5rem;
+  }
+
+  .title {
+    margin: 0;
+  }
+
+  .image {
+    height: 70rem;
+    width: 100%;
+    margin: 5rem 0;
+    object-fit: cover;
+  }
+}

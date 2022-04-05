@@ -1,0 +1,28 @@
+.sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 400;
+
+  .back {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+
+    .btn-text {
+      font-size: 1.6rem;
+    }
+
+    mat-icon {
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+    }
+  }
+
+  .text {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+}

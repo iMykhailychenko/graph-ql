@@ -1,1 +1,31 @@
-<p>post-page works!</p>
+<app-sub-header title="{{ postsService?.post?.title }}"></app-sub-header>
+
+<div
+  class="container"
+  *ngIf="postsService.postLoading && !postsService.postError; else elseBlock"
+>
+  Loading ...
+</div>
+
+<ng-template #elseBlock>
+  <div class="container" *ngIf="postsService.postError; else content">
+    {{ postsService.postError }}
+  </div>
+
+  <ng-template #content>
+    <div class="container">
+      <h1 class="title">{{ postsService.post.title }}</h1>
+
+      <img
+        class="image"
+        src="{{ postsService.post.image }}"
+        alt="{{ postsService.post.title }}"
+      />
+
+      <div
+        class="inner"
+        [innerHtml]="sanitize(postsService.post.description)"
+      ></div>
+    </div>
+  </ng-template>
+</ng-template>

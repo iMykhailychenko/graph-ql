@@ -8,8 +8,6 @@ const morgan = require("morgan");
 
 const resolvers = require("./graphql/resolvers");
 
-const { posts } = require("./api/posts/posts.router");
-
 const app = express();
 
 const typeDefs = gql(

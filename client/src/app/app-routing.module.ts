@@ -9,9 +9,9 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'post/:id', component: PostPageComponent },
-  { path: 'edit-post/:id', component: EditPostPageComponent },
-  { path: 'new-post', component: NewPostPageComponent },
+  { path: 'posts/new', component: NewPostPageComponent },
+  { path: 'posts/:id', component: PostPageComponent },
+  { path: 'posts/edit/:id', component: EditPostPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'join', component: JoinPageComponent },
 ];

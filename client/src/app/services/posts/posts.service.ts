@@ -1,32 +1,56 @@
 import { Injectable } from '@angular/core';
-import { PostsInterface } from './posts.interface';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
+
+import { postItemQuery, postsListQuery } from '../../queries/posts.query';
+
+import {
+  PostItemResultInterface,
+  PostsInterface,
+  PostsListResultInterface,
+} from './posts.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostsService {
-  loading = true;
-  posts: PostsInterface[] = [];
+  public postsError = '';
+  public postsLoading = true;
+  public posts: PostsInterface[] = [];
+
+  public postError = '';
+  public postLoading = true;
+  public post: PostsInterface = {} as PostsInterface;
 
   constructor(private readonly apollo: Apollo) {}
 
   getList(): void {
     this.apollo
-      .watchQuery({
-        query: gql`
-          query {
-            posts {
-              _id
-              title
-              image
-              description
-            }
-          }
-        `,
+      .watchQuery<PostsListResultInterface>({ query: postsListQuery })
+      .valueChanges.subscribe((results) => {
+        this.postsLoading = false;
+
+        if (results.error) {
+          this.postsError = 'Something went wrong!';
+        } else {
+          this.posts = results.data.posts;
+        }
+      });
+  }
+
+  getPostItem(id: string): void {
+    this.apollo
+      .watchQuery<PostItemResultInterface>({
+        query: postItemQuery,
+        variables: { id },
       })
-      .valueChanges.subscribe((result: any) => {
-        console.log(result);
+      .valueChanges.subscribe((results) => {
+        this.postLoading = false;
+
+        if (results.error) {
+          this.postError = 'Something went wrong!';
+        } else {
+          this.post = results.data.post;
+        }
       });
   }
 }

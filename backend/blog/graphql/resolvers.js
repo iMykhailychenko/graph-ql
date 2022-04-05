@@ -1,7 +1,7 @@
-const { PostModel } = require("../api/posts/posts.model");
+const { PostModel } = require("../models/posts.model");
 
 const Query = {
-  post: async (root, filters) => await PostModel.findOne(filters),
+  post: async (root, variables) => await PostModel.findOne(variables),
   posts: async () => await PostModel.find(),
 };
 
