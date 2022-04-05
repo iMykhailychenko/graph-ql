@@ -1,45 +1,49 @@
 <div class="content">
-  <h1 class="title">Welcome back to the GraphQL blog</h1>
-  <p class="text">
-    Accusamus dolor porro, quisquam rerum sit soluta ullam? Quod, voluptates.
-  </p>
-  <a mat-flat-button routerLink="/posts/new"> Create new post </a>
+  <app-container size="sm">
+    <h1 class="title">Welcome back to the GraphQL blog</h1>
+    <p class="text">
+      Accusamus dolor porro, quisquam rerum sit soluta ullam? Quod, voluptates.
+    </p>
+    <a mat-flat-button routerLink="/posts/new"> Create new post </a>
 
-  <small class="version">Current Version: {{ version }}</small>
+    <small class="version">Current Version: {{ version }}</small>
+  </app-container>
 </div>
 
-<div class="posts">
-  <h2>Resent posts</h2>
+<app-container class="container">
+  <div class="posts">
+    <h2>Resent posts</h2>
 
-  <ul class="list" *ngIf="!!postsService.posts.length; else empty">
-    <li *ngFor="let post of postsService.posts" class="card">
-      <mat-card>
-        <mat-card-header>
-          <div mat-card-avatar class="header-image"></div>
-          <mat-card-title>Shiba Inu</mat-card-title>
-          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <a class="card-link" [routerLink]="['/posts', post._id]">
-          <img
-            class="card-image"
-            mat-card-image
-            src="{{ post.image }}"
-            alt="{{ post.title }}"
-          />
-          <mat-card-content>
-            <h3 class="card-title">{{ post.title }}</h3>
-            <p class="card-text">{{ post.description }}</p>
-          </mat-card-content>
-        </a>
-        <mat-card-actions>
-          <button mat-button>LIKE</button>
-          <button mat-button>SHARE</button>
-        </mat-card-actions>
-      </mat-card>
-    </li>
-  </ul>
+    <ul class="list" *ngIf="!!postsService.posts.length; else empty">
+      <li *ngFor="let post of postsService.posts" class="card">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <a class="card-link" [routerLink]="['/posts', post._id]">
+            <img
+              class="card-image"
+              mat-card-image
+              src="{{ post.image }}"
+              alt="{{ post.title }}"
+            />
+            <mat-card-content>
+              <h3 class="card-title">{{ post.title }}</h3>
+              <p class="card-text">{{ post.description }}</p>
+            </mat-card-content>
+          </a>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </li>
+    </ul>
 
-  <ng-template #empty>
-    <p class="empty">There is no posts yet</p>
-  </ng-template>
-</div>
+    <ng-template #empty>
+      <p class="empty">There is no posts yet</p>
+    </ng-template>
+  </div>
+</app-container>

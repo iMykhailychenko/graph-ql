@@ -1,31 +1,30 @@
 <app-sub-header title="{{ postsService?.post?.title }}"></app-sub-header>
 
-<div
+<app-container
   class="container"
   *ngIf="postsService.postLoading && !postsService.postError; else elseBlock"
 >
   Loading ...
-</div>
+</app-container>
 
 <ng-template #elseBlock>
-  <div class="container" *ngIf="postsService.postError; else content">
+  <app-container class="container" *ngIf="postsService.postError; else content">
     {{ postsService.postError }}
-  </div>
+  </app-container>
 
   <ng-template #content>
-    <div class="container">
+    <app-container class="container">
       <h1 class="title">{{ postsService.post.title }}</h1>
+    </app-container>
 
-      <img
-        class="image"
-        src="{{ postsService.post.image }}"
-        alt="{{ postsService.post.title }}"
-      />
+    <img
+      class="image"
+      src="{{ postsService.post.image }}"
+      alt="{{ postsService.post.title }}"
+    />
 
-      <div
-        class="inner"
-        [innerHtml]="sanitize(postsService.post.description)"
-      ></div>
-    </div>
+    <app-container class="inner">
+      <div [innerHtml]="sanitize(postsService.post.description)"></div>
+    </app-container>
   </ng-template>
 </ng-template>

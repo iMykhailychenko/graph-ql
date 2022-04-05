@@ -1,0 +1,21 @@
+:host {
+  display: block;
+
+  .container {
+    padding: 0 2rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .lg {
+    max-width: 150rem;
+  }
+
+  .md {
+    max-width: 120rem;
+  }
+
+  .sm {
+    max-width: 80rem;
+  }
+}
