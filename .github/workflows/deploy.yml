@@ -14,7 +14,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd /home/phoqer-ui-kit
+            cd /home/graph-ql
             git pull
-            docker-compose stop
-            docker-compose -f docker-compose.yml --env-file .env up --build --remove-orphans -d
+            .prod.sh
