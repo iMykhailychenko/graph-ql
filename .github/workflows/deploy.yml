@@ -17,4 +17,4 @@ jobs:
             cd /home/phoqer-ui-kit
             git pull
             docker-compose stop
-            ./prod.sh
+            docker-compose -f docker-compose.yml --env-file .env up --build --remove-orphans -d
