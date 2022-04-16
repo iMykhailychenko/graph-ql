@@ -1,0 +1,11 @@
+node_modules
+deploy-config
+.git
+Dockerfile
+*.md
+.env.docker
+.idea
+.eslinter
+.eslinterignore
+.prettierrc
+.prettierignore

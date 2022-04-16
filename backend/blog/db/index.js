@@ -36,6 +36,7 @@ class Database {
       });
     });
 
+    console.log("Connecting to MongoDB, mongoUrl: ", mongoUrl);
     await mongoose.connect(mongoUrl, {
       user: mongoUser,
       pass: mongoPass,

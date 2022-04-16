@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  backend:
+  gq_backend:
     container_name: backend
-    build: ./
+    build: ./backend/
     restart: unless-stopped
     command: yarn start
     ports:
@@ -12,12 +12,21 @@ services:
     env_file:
       - .env
     depends_on:
-      - mongodb
+      - gq_mongodb
 
-  mongodb:
+  gq_client:
+    container_name: gq_client
+    build: ./client/
+    ports:
+      - "4200:4200"
+    depends_on:
+      - gq_mongodb
+      - gq_backend
+
+  gq_mongodb:
     image: mongo
     restart: unless-stopped
-    container_name: mongodb
+    container_name: gq_mongodb
     ports:
       - "27017:27017"
     volumes:
